@@ -21,7 +21,7 @@ RUN             mkdir -pm755 /etc/apt/keyrings
 RUN             wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 RUN             wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/trixie/winehq-trixie.sources
 RUN             apt update
-RUN             apt install --install-recommends wine64 cabextract -y
+RUN             apt install -y --install-recommends --allow-downgrades winehq-stable=10.0.0.0~trixie-1 wine-stable=10.0.0.0~trixie-1 wine-stable-amd64=10.0.0.0~trixie-1 wine-stable-i386:i386=10.0.0.0~trixie-1 cabextract
 
 # Set up Winetricks
 RUN	            wget -q -O /usr/sbin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
